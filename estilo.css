@@ -1,0 +1,231 @@
+/* ----- Estrutura base ----- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+}
+
+/* ----- Cabeçalho moderno ----- */
+header {
+    grid-column: 1 / 13;
+    background: linear-gradient(135deg, #506E6A, #2F3E46);
+    text-align: center;
+    color: #fff;
+    padding: 40px 20px 60px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    grid-column: 1 / 13;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ----- Menu moderno ----- */
+.menu {
+    position: sticky;
+    top: 0;
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #2F3E46;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Efeito hover com sublinhado animado */
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: #2F3E46;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover {
+    color: #1B263B;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ----- Conteúdo principal (imagem + texto) ----- */
+.conteudo {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+    padding: 40px 30px;
+}
+
+/* ----- Imagem (colunas 1 a 4) ----- */
+.imagem_joao {
+    grid-column: 1 / 4;
+}
+
+.imagem_joao section {
+    width: 90%;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagem_joao section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.imagem_joao img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ----- Texto principal (colunas 5 a 12) ----- */
+.principal {
+    grid-column: 5 / 13;
+    text-align: left;
+}
+
+.principal h2 {
+    text-align: left;
+    margin-top: 0;
+    color: #2F3E46;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.principal p {
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* ----- Rodapé ----- */
+.rodape {
+    grid-column: 1 / 13;
+    background-color: #2F3E46;
+    color: #fff;
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.rodape p {
+    margin: 5px 0;
+}
+
+/* ======================================================
+   MEDIA QUERIES — Responsividade
+   ====================================================== */
+
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
+    .conteudo {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .imagem_joao {
+        grid-column: 1 / 3;
+    }
+
+    .principal {
+        grid-column: 3 / 7;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .menu ul {
+        gap: 20px;
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    .conteudo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .imagem_joao {
+        grid-column: 1 / 13;
+    }
+
+    .principal {
+        grid-column: 1 / 13;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        position: static;
+        backdrop-filter: none;
+        background-color: #E0E0E0;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .principal h2 {
+        font-size: 1.3rem;
+    }
+
+    .imagem_joao img {
+        max-width: 90%;
+    }
+
+    .rodape {
+        font-size: 0.8rem;
+        padding: 15px;
+    }
+}
+
